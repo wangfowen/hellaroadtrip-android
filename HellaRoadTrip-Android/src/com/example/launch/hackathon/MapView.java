@@ -7,14 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -22,13 +19,14 @@ import com.example.launch.hackathon.common.GPSTracker;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapView extends Activity {
 	
@@ -76,19 +74,23 @@ public class MapView extends Activity {
          
          
          
-         /* 
-          * myMap.setOnMapLongClickListener(new OnMapLongClickListener() {
+         
+           myMap.setOnMapLongClickListener(new OnMapLongClickListener() {
 			
 			@Override
 			public void onMapLongClick(LatLng point) {
 				// TODO Auto-generated method stub
 				i++;
 				message = "Point: "+ i + " at "+ point.toString();
-				myMap.addMarker(new MarkerOptions().position(point).title(point.toString()));
-				Toast.makeText(getActivity(), "New marker at: "+point.toString(), Toast.LENGTH_LONG).show();
+				Marker marker = myMap.addMarker(new MarkerOptions().position(point).title(point.toString()));
+				 Polyline line = myMap.addPolyline(new PolylineOptions()
+			       .add(new LatLng(gps.getLatitude(), gps.getLongitude()), marker.getPosition())
+			       .width(5)
+			       .color(Color.RED));
+				//Toast.makeText(getActivity(), "New marker at: "+point.toString(), Toast.LENGTH_LONG).show();
 			}
 		});
-         */
+         
          
          //drawMerchantLocations();
          

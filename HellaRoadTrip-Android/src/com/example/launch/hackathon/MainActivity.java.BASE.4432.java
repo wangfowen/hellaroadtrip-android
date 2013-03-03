@@ -1,28 +1,20 @@
 package com.example.launch.hackathon;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Toast;
-import android.content.Intent;
 import android.content.res.AssetManager;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
+import android.os.Bundle;
 
 public class MainActivity extends Activity{
 	
@@ -40,22 +32,25 @@ public class MainActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Button loginSubmit = (Button)findViewById(R.id.login_submit);
-        loginSubmit.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(v.getContext(), MapView.class );
-				startActivity(intent);
-	       	}
-		});
-       		
+        appContext = getApplicationContext();
         
+        FragmentManager fm = getFragmentManager();
         
-        //appContext = getApplicationContext();
+        if (findViewById(R.id.map) != null) {
+        	FragmentTransaction ft = fm.beginTransaction();
+        	ft.add(android.R.id.content, new MapViewFragment());
+        	ft.commit();
+        }
         
+        if (savedInstanceState == null) {
+            // During initial setup, plug in the details fragment.
+        	Bundle data = new Bundle();
+        	data.putSerializable("data", locations);
+            MapViewFragment details = new MapViewFragment();
+            details.setArguments(data);
+            getFragmentManager().beginTransaction().add(android.R.id.content, details).commit();
+        }
 
       
         /*ActionBar bar = getActionBar();
@@ -82,33 +77,11 @@ public class MainActivity extends Activity{
         
     }
     
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.activity_main, menu);
         return true;
-    }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	switch(item.getItemId()) {
-    		case R.id.action_add:
-    			Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
-    			return true;
-    		default:
-    			Toast.makeText(this, "Selected Item: none", Toast.LENGTH_SHORT).show();
-    			return true;
-    	}
-        
-    }
-    
-    /*@Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        if (mSortMode != -1) {
-            Drawable icon = menu.findItem(mSortMode).getIcon();
-            menu.findItem(R.id.action_sort).setIcon(icon);
-        }
-        return super.onPrepareOptionsMenu(menu);
     }*/
 
     

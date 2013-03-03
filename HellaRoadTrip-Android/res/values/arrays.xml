@@ -6,4 +6,11 @@
         <item>Hotel</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="marker_types">
+        <item>Food</item>
+        <item>Hotel</item>
+        <item>Gas</item>
+        <item>Other</item>
+    </string-array>
 </resources>

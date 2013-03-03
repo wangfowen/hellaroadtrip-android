@@ -1,61 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+	<TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Marker Message"
+            android:layout_marginLeft="12dp"
+        	android:layout_marginRight="12dp"/>
+
+    <EditText
+        android:id="@+id/marker_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_margin="12dp" />
+    
+    <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="Marker Message"
+        	android:layout_marginLeft="12dp"
+        	android:layout_marginRight="12dp"/>
+    
+    <EditText 
+        android:id="@+id/marker_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_margin="12dp"/>
 
     <Spinner
         android:id="@+id/drivers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_margin="12dp"
+       />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/dialog_name"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical" >
+</LinearLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Marker Message" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText2"
-            android:inputType="textMultiLine" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/dialog_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/drivers"
-        android:layout_marginTop="14dp"
-        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/marker_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Marker Name" />
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText1" >
-
-            <requestFocus />
-        </EditText>
-    </LinearLayout>
-
-</RelativeLayout>

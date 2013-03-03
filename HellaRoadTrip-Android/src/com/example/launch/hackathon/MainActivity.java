@@ -16,6 +16,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity{
 	
@@ -33,25 +39,22 @@ public class MainActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        appContext = getApplicationContext();
+        Button loginSubmit = (Button)findViewById(R.id.login_submit);
+        loginSubmit.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), MapView.class );
+				startActivity(intent);
+	       	}
+		});
+       		
         
-        FragmentManager fm = getFragmentManager();
         
-        if (findViewById(R.id.map) != null) {
-        	FragmentTransaction ft = fm.beginTransaction();
-        	ft.add(android.R.id.content, new MapViewFragment());
-        	ft.commit();
-        }
+        //appContext = getApplicationContext();
         
-        if (savedInstanceState == null) {
-            // During initial setup, plug in the details fragment.
-        	Bundle data = new Bundle();
-        	data.putSerializable("data", locations);
-            MapViewFragment details = new MapViewFragment();
-            details.setArguments(data);
-            getFragmentManager().beginTransaction().add(android.R.id.content, details).commit();
-        }
 
       
         /*ActionBar bar = getActionBar();

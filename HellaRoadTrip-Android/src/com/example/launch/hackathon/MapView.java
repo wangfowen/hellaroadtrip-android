@@ -10,6 +10,9 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -113,6 +116,26 @@ public class MapView extends Activity {
         super.onSaveInstanceState(outState);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch(item.getItemId()) {
+    		case R.id.action_add:
+    			Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+    			return true;
+    		default:
+    			Toast.makeText(this, "Selected Item: none", Toast.LENGTH_SHORT).show();
+    			return true;
+    	}
+    }
+        
+    
 	/*private void drawMerchantLocations() {
 		HashMap<String, String> merchant;
          String address;

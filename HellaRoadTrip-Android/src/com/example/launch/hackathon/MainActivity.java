@@ -82,25 +82,7 @@ public class MainActivity extends Activity{
         
     }
     
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;
-    }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	switch(item.getItemId()) {
-    		case R.id.action_add:
-    			Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
-    			return true;
-    		default:
-    			Toast.makeText(this, "Selected Item: none", Toast.LENGTH_SHORT).show();
-    			return true;
-    	}
-        
-    }
+
     
     /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {

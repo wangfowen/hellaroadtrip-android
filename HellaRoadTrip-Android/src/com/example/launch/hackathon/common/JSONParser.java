@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,6 +19,15 @@ public class JSONParser {
 	static InputStream in = null;
 	static JSONObject jObject = null;
 	static String result = "";
+
+	private JSONObject header = null;
+	private JSONObject response = null;
+
+	JSONArray jArray;
+
+	LatLng SFO_LATLNG = new LatLng(37.61660000000001, -122.383890);
+
+	
 
 	public JSONParser() {
 
@@ -62,25 +73,44 @@ public class JSONParser {
 		return jObject;
 
 	}
-	
-	
-	
-	public ArrayList<LatLng> getDirections(InputStream input) {
-		ArrayList<LatLng> steps = new ArrayList<LatLng>();
+
+	public ArrayList<HashMap<String, JSONObject>> getDirections(InputStream input) {
 		
-		/*AssetManager assetManager = getAssets();
-		InputStream input;
-		JSONObject json = null;
+		JSONObject response = null;
 		
+		JSONObject json = parseJSON(input);
+		
+		//ArrayList<HashMap<String, JSONArray>> steps = new ArrayList<HashMap<String, JSONArray>>();
+
+		ArrayList<HashMap<String, JSONObject>> steps = new ArrayList<HashMap<String, JSONObject>>();
+
 		try {
-			input = assetManager.open("sample.json");
-			json = new JSONParser().getDirections(input);
+
+			//header = json.getJSONObject(TAG_HEADER);
+			jArray = json.getJSONArray(DirectionTags.TAG_HEADER);
 			
-		} catch (IOException e) {
+			//jArray = header.getJSONArray(TAG_END_LOCATION);
+
+			for (int i = 0; i < jArray.length(); i++) {
+				response = jArray.getJSONObject(i);
+
+				
+				HashMap<String, JSONObject> hMap = new HashMap<String, JSONObject>();
+				//HashMap<String, JSONArray> hMap = new HashMap<String, JSONArray>();
+
+				hMap.put(DirectionTags.TAG_END_LOCATION, response.getJSONObject(DirectionTags.TAG_END_LOCATION));
+				hMap.put(DirectionTags.TAG_START_LOCATION,response.getJSONObject(DirectionTags.TAG_START_LOCATION));
+				
+				
+				steps.add(hMap);
+
+			}
+
+		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		*/
 		return steps;
 	}
+	
 
 }

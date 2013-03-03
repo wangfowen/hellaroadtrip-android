@@ -1,37 +1,5 @@
 {
-   "routes" : [
-      {
-         "bounds" : {
-            "northeast" : {
-               "lat" : 37.774790,
-               "lng" : -122.383880
-            },
-            "southwest" : {
-               "lat" : 37.613790,
-               "lng" : -122.407170
-            }
-         },
-         "copyrights" : "Map data ©2013 Google",
-         "legs" : [
-            {
-               "distance" : {
-                  "text" : "13.2 mi",
-                  "value" : 21166
-               },
-               "duration" : {
-                  "text" : "17 mins",
-                  "value" : 1000
-               },
-               "end_address" : "Unnamed Road, San Francisco Airport (SFO), San Francisco, CA 94128, USA",
-               "end_location" : {
-                  "lat" : 37.61660000000001,
-                  "lng" : -122.383890
-               },
-               "start_address" : "840 Brannan Street, San Francisco, CA 94103, USA",
-               "start_location" : {
-                  "lat" : 37.771950,
-                  "lng" : -122.404620
-               },
+   
                "steps" : [
                   {
                      "distance" : {
@@ -263,17 +231,5 @@
                      },
                      "travel_mode" : "DRIVING"
                   }
-               ],
-               "via_waypoint" : []
-            }
-         ],
-         "overview_polyline" : {
-            "points" : "uipeFzcbjVwKaOmBoCq@aAf@Y`BqAXUlA_B`@g@dCgDHMt@o@@Cd@Uz@YVMh@IhBI~EQjAUjA_@nAo@`As@v@w@bAqABGFYbDiEbAwAV_@fAoA~CgCp@_@hBy@|Ae@`AQbAIpGa@jIe@lDKhDChA?vB@hEBbACtAMvCg@r@SdCo@hASfD_@nAE^?hBF`ALbANr@PdA\\TJlBt@nBt@~FvBxGlCbBr@tAv@lAv@`BrAfD~CjFpE|AtA`CrBjJfIHFz@r@|@z@zBrBvB~BrBjCVPPLhB`Dd@`AhAbBjAnAfAt@\\Th@R~@X~@Rn@Dh@@f@Cd@CbAMpAa@`C}@l@UR@bDuA~Am@bFgAvCo@jD}@rAY\\BhA_@nEqApEoAbFyArH}B|C}@bDs@vGqApF}@zDw@`EoA|@a@`B}@xH}F|AgAlDaBxBs@rBa@pAQfG{@pBYzAQtWgDfKyAzpAqQfL}AnWqDjTcDhCWdBIr@At@?tCJ~APjBXvCx@nCz@rClAjClAvDrBhC~AdExCdBtAhAdApL~KlH`HnDpDtA~A~B~C~@zATb@l@hAjM|TxAxB`AjAnAnAnA`AdDpBlMnFjCz@rBf@vC\\fAHxBDvCGjDQhFW~@CzSw@x`@_B~BSbBO~@WtCq@rA_@rFoBnBa@dEoAv@QjBa@z@KdGi@p@IvEi@lE_@lBSjJo@bHm@hC[zAWzA]tIwCzNuDfEcAdB[tIaBtD{@|DgA~Aq@vDmApDwAh@[VSPW^s@Nm@F_@FmAAk@S_C_@uDe@}Dm@{Ci@gD?U[sBB[a@iCIaA@WIs@y@uHBwBp@aCd@iBVkABW?g@CcAKm@Om@_@u@_@a@c@]cC}AkAo@UAE@"
-         },
-         "summary" : "US-101 S",
-         "warnings" : [],
-         "waypoint_order" : []
-      }
-   ],
-   "status" : "OK"
+               ]
 }

@@ -10,13 +10,14 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-
+<<<<<<< HEAD
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+=======
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+>>>>>>> Added login view
 
 public class MainActivity extends Activity{
 	

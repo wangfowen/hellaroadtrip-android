@@ -1,5 +1,7 @@
 package com.example.launch.hackathon;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,6 +10,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +22,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.launch.hackathon.common.GPSTracker;
+import com.example.launch.hackathon.common.JSONParser;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -133,6 +137,39 @@ public class MapView extends Activity {
     			Toast.makeText(this, "Selected Item: none", Toast.LENGTH_SHORT).show();
     			return true;
     	}
+    }
+    
+    private void parseLocations() {
+    	AssetManager assetManager = getAssets();
+		InputStream input;
+		JSONObject json = null;
+		ArrayList<LatLng> directions;
+		
+		try {
+			input = assetManager.open("sample.json");
+			directions = new JSONParser().getDirections(input);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		/*try {
+			// Get JSON Object from response data and parse out header
+			header = json.getJSONObject(PayWaveTags.TAG_HEADER);
+			
+			// Get responseData
+			jArray = header.getJSONArray(PayWaveTags.TAG_RESPONSE_DATA);
+			
+			for(int i = 0; i < jArray.length(); i++) {
+				response = jArray.getJSONObject(i);
+				
+				
+				locations.add(hMap);
+			}
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}*/
     }
         
     

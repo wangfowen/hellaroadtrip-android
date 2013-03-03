@@ -1,5 +1,7 @@
 package com.example.launch.hackathon;
 
-public class AddMarkerActivity {
+import android.app.Activity;
+
+public class AddMarkerActivity extends Activity {
 
 }
